@@ -15,7 +15,7 @@ describe('Google search using Google Search button',()=>{
 
     it('should check the first result link on the search results page',()=>{
 
-        GooglePage.SearchElements[0].click()
+        GooglePage.searchPageResults(0);
 
         expect(GooglePage.ResultElement.getText()).to.equal("El nombre del viento");
 

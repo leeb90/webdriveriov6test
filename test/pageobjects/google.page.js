@@ -15,7 +15,8 @@ class GooglePage extends Page {
 
 
 
-    
+    //Google home page search function, decides whether to use the Google search button or the suggestion list based on the buttonmethod
+    //variable (bool)
     searchFunction (searchtext,buttonmethod,listposition) {
 
         this.SearchBar.setValue(searchtext);
@@ -24,7 +25,7 @@ class GooglePage extends Page {
 
             browser.waitUntil(() => {
                 return this.SearchButton.isDisplayed()
-              },"Google Search Button was not found on page");
+            },"Google Search Button was not found on page");
 
             this.SearchButton.click();
 
@@ -32,19 +33,27 @@ class GooglePage extends Page {
 
             browser.waitUntil(() => {
                 return this.SuggestionBox.isDisplayed()
-              },"Google Suggestion List was not found on page");
+            },"Google Suggestion List was not found on page");
 
             this.SuggestionElements[listposition].click();
         }
 
-        browser.waitUntil(() => {
-            return this.NavBar.isDisplayed()
-          },"Element was not found on search result page");
+            browser.waitUntil(() => {
+                return this.NavBar.isDisplayed()
+            },"Element was not found on search result page");
 
     }
 
+    //Open url
     open () {
         return super.open('https://www.google.com/');
+    }
+
+    //function to click on any result from Google search page
+    searchPageResults (searchindex){
+
+        this.SearchElements[searchindex].click();
+
     }
 }
 
