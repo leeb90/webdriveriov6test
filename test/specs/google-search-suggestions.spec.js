@@ -16,8 +16,10 @@ describe('Google search using suggestions',()=>{
     it('should check the first result link on the search results page',()=>{
 
         GooglePage.searchPageResults(0);
+
+        const Result = GooglePage.ResultElement.getText();
     
-        expect(GooglePage.ResultElement.getText()).to.equal("El nombre del viento");
+        expect(Result).to.equal("El nombre del viento");
     
 
     });

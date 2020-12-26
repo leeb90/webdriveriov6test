@@ -17,7 +17,9 @@ describe('Google search using Google Search button',()=>{
 
         GooglePage.searchPageResults(0);
 
-        expect(GooglePage.ResultElement.getText()).to.equal("El nombre del viento");
+        const Result = GooglePage.ResultElement.getText();
+
+        expect(Result).to.equal("El nombre del viento");
 
     });
 });
